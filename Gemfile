@@ -16,11 +16,20 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"	
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
+gem 'rails_admin'
+gem "haml-rails"
+gem 'rolify'
+gem 'cancan'
+gem 'client_side_validations'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -39,3 +48,5 @@ gem 'jquery-rails'
 group :development  do
 	gem 'debugger'
 end
+
+gem "devise"

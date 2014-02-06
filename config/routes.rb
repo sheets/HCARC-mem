@@ -1,4 +1,13 @@
 Hcare::Application.routes.draw do
+  get "home/index"
+
+  devise_for :users
+  # devise_scope :user do
+    
+  # end
+  root to: "home#index"
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +57,7 @@ Hcare::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # root :to => 'users#index'
 
   # See how all your routes lay out with "rake routes"
 
