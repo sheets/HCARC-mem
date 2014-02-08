@@ -28,6 +28,7 @@ gem "haml-rails"
 gem 'rolify'
 gem 'cancan'
 gem 'client_side_validations'
+gem "nokogiri"
 
 
 

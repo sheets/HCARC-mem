@@ -191,6 +191,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mysql2
+  nokogiri
   rails (= 3.2.13)
   rails_admin
   rolify

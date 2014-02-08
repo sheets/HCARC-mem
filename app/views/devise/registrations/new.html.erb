@@ -1,0 +1,47 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <%=render "profile_form" %>
+  <div id="form-step-2">
+	  <div><%= f.label :email %><br />
+	  <%= f.email_field :email, :autofocus => true %></div>
+
+	  <div><%= f.label :password %><br />
+	  <%= f.password_field :password %></div>
+
+	  <div><%= f.label :password_confirmation %><br />
+	  <%= f.password_field :password_confirmation %></div>
+
+	  <!-- <div>
+	  <%#= f.submit "Sign up" %>
+	  </div> -->
+	</div>
+<% end %>
+<ul class="pager">
+  <li class="submit-prev"><a  href="javascript:void(0)">Previous</a></li>
+  <li class="submit-next"><a  href="javascript:void(0)">Next</a></li>
+  <li class="submit-final"><a  href="javascript:void(0)">Next</a></li>
+</ul>
+
+
+<%= render "devise/shared/links" %>
+
+<style>
+	#form-step-2,.submit-prev,.submit-final{
+		display:none;
+		display: inline-block;
+	}
+</style>
+<script>
+	$(".submit-next").click(function(){
+		 $(".submit-next,#form-step-1").hide();
+		 $(".submit-prev,.submit-final,#form-step-2").show();
+	});
+	$(".submit-prev").click(function(){
+		 $(".submit-prev,.submit-final,#form-step-2").hide();
+		 $(".submit-next,#form-step-1").show();
+		 
+	});
+
+</script>
