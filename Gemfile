@@ -48,6 +48,7 @@ gem "nokogiri"
 # gem 'debugger'
 group :development  do
 	gem 'debugger'
+	gem 'html2haml'
 end
 
 gem "devise"

@@ -1,30 +1,31 @@
 #form-step-1
-	%label Callsign
-	%input{:type=>"text",:value=>@alldata["call"]}
-	%br/
-	%label First Name
-	%input{:type=>"text",:value=>@alldata["fname"]}
-	%br/
-	%label Last Name
-	%input{:type=>"text",:value=>@alldata["name"]}
-	%br/
-	%label Address 1
-	%input{:type=>"text",:value=>@alldata["addr1"]}
-	%br/
-	%label Address 2
-	%input{:type=>"text",:value=>@alldata["addr2"]}
-	%br/
-	%label State
-	%input{:type=>"text",:value=>@alldata["state"]}
-	%br/
-	%label Zip
-	%input{:type=>"text",:value=>@alldata["zip"]}
-	%br/
-	%label Country
-	%input{:type=>"text",:value=>@alldata["country"]}
-	%br/
-	%label Efdate
-	%input{:type=>"text",:value=>@alldata["efdate"]}
-	%br/
-	%label expdate
-	%input{:type=>"text",:value=>@alldata["expdate"]}
+	=f.fields_for :userprofile do |profile|
+		%label Callsign
+		=profile.text_field :call,:value=>@alldata["call"]
+		%br/
+		%label First Name
+		=profile.text_field :fname,:value=>@alldata["fname"]
+		%br/
+		%label Last Name
+		=profile.text_field :lname,:value=>@alldata["lname"]
+		%br/
+		%label Address 1
+		=profile.text_field :addr1,:value=>@alldata["addr1"]
+		%br/
+		%label Address 2
+		=profile.text_field :addr2,:value=>@alldata["addr2"]
+		%br/
+		%label State
+		=profile.text_field :addr2,:value=>@alldata["addr2"]
+		%br/
+		%label Zip
+		=profile.text_field :zip,:value=>@alldata["zip"]
+		%br/
+		%label Class
+		=profile.text_field :user_class,:value=>class_name_translate(@alldata["class_user"])
+		%br/
+		%label Efdate
+		=profile.text_field :efdate,:value=>@alldata["efdate"],:readonly=>true
+		%br/
+		%label expdate
+		=profile.text_field :expdate,:value=>@alldata["expdate"],:readonly=>true

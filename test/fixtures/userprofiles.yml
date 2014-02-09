@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  callsign: MyString
+  fname: MyString
+  lname: MyString
+  add1: MyText
+  state: MyString
+  zip: MyString
+  class_user: MyString
+  efdate: 2014-02-09
+  expdate: 2014-02-09
+  user: 
+
+two:
+  callsign: MyString
+  fname: MyString
+  lname: MyString
+  add1: MyText
+  state: MyString
+  zip: MyString
+  class_user: MyString
+  efdate: 2014-02-09
+  expdate: 2014-02-09
+  user: 

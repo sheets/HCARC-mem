@@ -20,16 +20,23 @@ class RegistrationsController < Devise::RegistrationsController
 		    @alldata["addr2"]=node.xpath("//xmlns:addr2").first.children.text
 		    @alldata["state"]=node.xpath("//xmlns:state").first.children.text
 		    @alldata["zip"]=node.xpath("//xmlns:zip").first.children.text
-		    @alldata["country"]=node.xpath("//xmlns:country").first.children.text
+		    @alldata["class_user"]=node.xpath("//xmlns:class").first.children.text
 		    @alldata["lat"]=node.xpath("//xmlns:lat").first.children.text
 		    @alldata["efdate"]=node.xpath("//xmlns:efdate").first.children.text
 		    @alldata["expdate"]=node.xpath("//xmlns:expdate").first.children.text
 		end
-		super
+		@user=User.new
+		@user.build_userprofile
 	end
 
 	def create
+		userprofile=params[:user][:userprofile_attributes]
+		params[:user]=params[:user].except(:userprofile_attributes)
 		super
+		unless @user.blank?
+			@user.build_userprofile(userprofile).save!
+			# @user.userprofile.create!(userprofile)
+		end
 	end
 
 	def update

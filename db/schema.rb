@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140206194653) do
+ActiveRecord::Schema.define(:version => 20140209163805) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(:version => 20140206194653) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "userprofiles", :force => true do |t|
+    t.string   "callsign"
+    t.string   "fname"
+    t.string   "lname"
+    t.text     "add1"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "class_user"
+    t.date     "efdate"
+    t.date     "expdate"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "userprofiles", ["user_id"], :name => "index_userprofiles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
