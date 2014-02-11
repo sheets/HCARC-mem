@@ -49,6 +49,7 @@ gem "nokogiri"
 group :development  do
 	gem 'debugger'
 	gem 'html2haml'
+	gem 'capistrano','~>2.15.4'
 end
 
 gem "devise"
