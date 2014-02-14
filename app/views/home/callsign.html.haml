@@ -1,0 +1,14 @@
+.row
+	.col-lg-6
+		.well
+			.bs-example.form-horizontal
+				%form{:method=>"GET",:action=>new_user_registration_path}
+					%legend Callsign
+					.form-group
+						.col-lg-2.control-label Callsign
+						.col-lg-10
+							= text_field_tag :callsign,"", :class=>"form-control",:id=>"inputEmail",:autofocus => true,:placeholder=>"Callsign"
+					.form-group
+						.col-lg-10.col-lg-offset-2
+							%button.btn.btn-default Skip
+							%button.btn.btn-primary{type: "submit"} Submit

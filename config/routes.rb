@@ -1,5 +1,6 @@
 Hcare::Application.routes.draw do
   get "home/index"
+  get "home/callsign"
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   # devise_scope :user do
