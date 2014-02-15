@@ -1,7 +1,7 @@
 #form-step-1
 	=f.fields_for :userprofile do |profile|
 		%label Callsign
-		=profile.text_field :call,:value=>@alldata["call"]
+		=profile.text_field :call,:value=>@alldata["call"],:required=>true,:class=>"required"
 		%br/
 		%label First Name
 		=profile.text_field :fname,:value=>@alldata["fname"]
@@ -29,3 +29,6 @@
 		%br/
 		%label expdate
 		=profile.text_field :expdate,:value=>@alldata["expdate"],:readonly=>true
+
+
+	

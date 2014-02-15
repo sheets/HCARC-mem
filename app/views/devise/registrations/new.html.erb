@@ -42,13 +42,17 @@
 	}
 </style>
 <script>
+
 	$("#new_user").enableClientSideValidations();
 	$('#myModal').on('shown.bs.modal', function () {
   	$(ClientSideValidations.selectors.forms).validate();
 	});
 	$(".submit-next").click(function(){
-		 $(".submit-next,#form-step-1").hide();
-		 $(".submit-prev,.submit-final,#form-step-2").show();
+		var form = $("form#new_user");
+		form.validate();
+		form.submit();
+
+		 
 	});
 	$(".submit-prev").click(function(){
 		 $(".submit-prev,.submit-final,#form-step-2").hide();
@@ -59,5 +63,6 @@
 
 		$("#new_user").submit();
 	});
+
 
 </script>

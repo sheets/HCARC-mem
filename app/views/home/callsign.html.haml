@@ -7,8 +7,8 @@
 					.form-group
 						.col-lg-2.control-label Callsign
 						.col-lg-10
-							= text_field_tag :callsign,"", :class=>"form-control",:id=>"inputEmail",:autofocus => true,:placeholder=>"Callsign"
+							= text_field_tag :call_sign,"", :class=>"form-control",:id=>"inputEmail",:autofocus => true,:placeholder=>"Callsign",:required=>true
 					.form-group
 						.col-lg-10.col-lg-offset-2
-							%button.btn.btn-default Skip
+							=link_to "Skip",new_user_registration_path,:class=>"btn btn-default" 
 							%button.btn.btn-primary{type: "submit"} Submit
