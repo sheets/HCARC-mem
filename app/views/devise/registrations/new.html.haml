@@ -1,56 +1,35 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:validate=>true) do |f|
-  = devise_error_messages!
-  = render "profile_form"
-  #form-step-2
-    %div
-      = f.label :email
-      %br/
-      = f.email_field :email, :autofocus => true,:validate => true
-    %div
-      = f.label :password
-      %br/
-      = f.password_field :password
-    %div
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation
-    %div
-      = f.submit "Sign up"
-%ul.pager-new
-  %li.submit-prev
-    %a.btn.btn-primary{:href => "javascript:void(0)"} Previous
-  %li.submit-next
-    %a.btn.btn-primary{:href => "javascript:void(0)"} Next
-  %li.submit-final
-    %a.btn.btn-primary{:href => "javascript:void(0)"} Next
-.cl
-:css
-  .pager-new{
-  	list-style: none outside none;
-  }
-  #form-step-2,.submit-prev,.submit-final{
-  	display:none;
-  }
-  .pager-new li{
-  	float:left;
-  	margin-right:10px;
-  }
-:javascript
-  $("#new_user").enableClientSideValidations();
-  	$('#myModal').on('shown.bs.modal', function () {
-    	$(ClientSideValidations.selectors.forms).validate();
-  	});
-  	$(".submit-next").click(function(){
-  		 $(".submit-next,#form-step-1").hide();
-  		 $(".submit-prev,.submit-final,#form-step-2").show();
-  	});
-  	$(".submit-prev").click(function(){
-  		 $(".submit-prev,.submit-final,#form-step-2").hide();
-  		 $(".submit-next,#form-step-1").show();
-  		 
-  	});
-  	$(".submit-final").click(function(){
-  		
-  		$("#new_user").submit();
-  	});
+.row
+  .col-lg-6
+    .well
+      .bs-example.form-horizontal
+        %h2 Sign up
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name),:validate=>true) do |f|
+          = devise_error_messages!
+          .form-group
+            .col-lg-2.control-label= f.label :email
+            .col-lg-10
+              = f.email_field :email, :class=>"form-control",:autofocus => true
+          .form-group
+            .col-lg-2.control-label= f.label :password
+            .col-lg-10
+              = f.password_field :password,:class=>"form-control"
+              = hidden_field_tag "userprofile[call]",@userprofile["call"]
+              = hidden_field_tag "userprofile[fname]",@userprofile["fname"]
+              = hidden_field_tag "userprofile[lname]",@userprofile["name"]
+              = hidden_field_tag "userprofile[addr1]",@userprofile["addr1"]
+              = hidden_field_tag "userprofile[addr2]",@userprofile["addr2"]
+              = hidden_field_tag "userprofile[state]",@userprofile["state"]
+              = hidden_field_tag "userprofile[city]",@userprofile["city"]
+              = hidden_field_tag "userprofile[zip]",@userprofile["zip"]
+              = hidden_field_tag "userprofile[class_user]",@userprofile["class_user"]
+              = hidden_field_tag "userprofile[efdate]",@userprofile["efdate"]
+              = hidden_field_tag "userprofile[expdate]",@userprofile["expdate"]
+          .form-group
+            .col-lg-2.control-label=f.label :password_confirmation
+            .col-lg-10
+              = f.password_field :password_confirmation,:class=>"form-control"
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              =link_to "Cancel" ,"/",:class=>"btn btn-default"
+              %button.btn.btn-primary{type: "submit"} Signin
+

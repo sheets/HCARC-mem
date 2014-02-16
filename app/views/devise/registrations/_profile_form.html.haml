@@ -1,34 +1,61 @@
+
+
+
+/ <%= render "devise/shared/links" %>
+
 #form-step-1
-	=f.fields_for :userprofile do |profile|
-		%label Callsign
-		=profile.text_field :call,:value=>@alldata["call"],:required=>true,:class=>"required"
-		%br/
-		%label First Name
-		=profile.text_field :fname,:value=>@alldata["fname"]
-		%br/
-		%label Last Name
-		=profile.text_field :lname,:value=>@alldata["lname"]
-		%br/
-		%label Address 1
-		=profile.text_field :addr1,:value=>@alldata["addr1"]
-		%br/
-		%label Address 2
-		=profile.text_field :addr2,:value=>@alldata["addr2"]
-		%br/
-		%label State
-		=profile.text_field :addr2,:value=>@alldata["addr2"]
-		%br/
-		%label Zip
-		=profile.text_field :zip,:value=>@alldata["zip"]
-		%br/
-		%label Class
-		=profile.text_field :user_class,:value=>class_name_translate(@alldata["class_user"])
-		%br/
-		%label Efdate
-		=profile.text_field :efdate,:value=>@alldata["efdate"],:readonly=>true
-		%br/
-		%label expdate
-		=profile.text_field :expdate,:value=>@alldata["expdate"],:readonly=>true
-
-
+	.row
+		.col-lg-6
+			.well
+				.bs-example.form-horizontal
+					=form_for :userprofile,:url=>new_user_registration_path,:html=>{:validate=>true,:method=>"GET"} do |profile|
+						%legend Sign up
+						.form-group
+							.col-lg-2.control-label=profile.label :callsign
+							.col-lg-10
+								=profile.text_field :call,:value=>@alldata["call"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :first_name
+							.col-lg-10
+								=profile.text_field :fname,:value=>@alldata["fname"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :last_name
+							.col-lg-10
+								=profile.text_field :name,:value=>@alldata["name"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :addr1
+							.col-lg-10
+								=profile.text_field :addr1,:value=>@alldata["addr1"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :addr2
+							.col-lg-10
+								=profile.text_field :addr2,:value=>@alldata["addr2"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :state
+							.col-lg-10
+								=profile.text_field :state,:value=>@alldata["state"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :city
+							.col-lg-10
+								=profile.text_field :city,:value=>@alldata["city"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :zip
+							.col-lg-10
+								=profile.text_field :zip,:value=>@alldata["zip"],:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :class
+							.col-lg-10
+								=profile.text_field :class_user,:value=>class_name_translate(@alldata["class_user"]),:required=>true,:class=>"form-control"
+						.form-group
+							.col-lg-2.control-label=profile.label :efdate
+							.col-lg-10
+								=profile.text_field :efdate,:value=>@alldata["efdate"],:required=>true,:class=>"form-control",:readonly=>true
+						.form-group
+							.col-lg-2.control-label=profile.label :expdate
+							.col-lg-10
+								=profile.text_field :expdate,:value=>@alldata["expdate"],:required=>true,:class=>"form-control",:readonly=>true
+						.form-group
+							.col-lg-10.col-lg-offset-2
+								=link_to "Cancel" ,"/",:class=>"btn btn-default"
+								%button.btn.btn-primary{type: "submit"} Next
 	

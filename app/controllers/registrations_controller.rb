@@ -1,24 +1,24 @@
 class RegistrationsController < Devise::RegistrationsController
-	before_filter :call_sign_call,:only=>[:new]
+	before_filter :call_sign_call,:only=>[:profile]
 	require 'nokogiri'
 	require 'open-uri'
 	def new
 		@user=User.new
-		@user.build_userprofile
+		@userprofile=params[:userprofile]
 	end
 
 	def create
-		userprofile=params[:user][:userprofile_attributes]
-		params[:user]=params[:user].except(:userprofile_attributes)
 		super
 		unless @user.blank?
-			@user.build_userprofile(userprofile).save!
-			# @user.userprofile.create!(userprofile)
+			@user.build_userprofile(params[:userprofile]).save!
 		end
 	end
 
 	def update
 		super
+	end
+	def profile
+		@profile=Userprofile.new
 	end
 	private
 	def call_sign_call
