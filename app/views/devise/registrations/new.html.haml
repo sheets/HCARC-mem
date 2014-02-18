@@ -13,13 +13,13 @@
             .col-lg-2.control-label= f.label :password
             .col-lg-10
               = f.password_field :password,:class=>"form-control"
-              = hidden_field_tag "userprofile[call]",@userprofile["call"]
+              = hidden_field_tag "userprofile[callsign]",@userprofile["callsign"]
               = hidden_field_tag "userprofile[fname]",@userprofile["fname"]
-              = hidden_field_tag "userprofile[lname]",@userprofile["name"]
-              = hidden_field_tag "userprofile[addr1]",@userprofile["addr1"]
-              = hidden_field_tag "userprofile[addr2]",@userprofile["addr2"]
+              = hidden_field_tag "userprofile[lname]",@userprofile["lname"]
+              = hidden_field_tag "userprofile[add1]",@userprofile["add1"]
+              / = hidden_field_tag "userprofile[addr2]",@userprofile["addr2"]
               = hidden_field_tag "userprofile[state]",@userprofile["state"]
-              = hidden_field_tag "userprofile[city]",@userprofile["city"]
+              / = hidden_field_tag "userprofile[city]",@userprofile["city"]
               = hidden_field_tag "userprofile[zip]",@userprofile["zip"]
               = hidden_field_tag "userprofile[class_user]",@userprofile["class_user"]
               = hidden_field_tag "userprofile[efdate]",@userprofile["efdate"]

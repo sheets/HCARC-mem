@@ -44,10 +44,18 @@
         /       %a{href: "../united/"} United
         /     %li
         /       %a{href: "../yeti/"} Yeti
-        %li
-          =link_to "Sign up",home_callsign_path
-        %li
-          =link_to "Sign in",new_user_session_path
+        
+        -if user_signed_in?
+          %li
+            =link_to "Signed in as #{current_user.email}. Not you?",userprofile_path(current_user)
+          %li
+            = link_to "Sign out", destroy_user_session_path, :method => :delete
+        -else
+          %li
+            =link_to "Sign up",home_callsign_path  
+          %li  
+            =link_to "Sign in",new_user_session_path
+
         / %li.dropdown
         /   %a#download.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
         /     Download

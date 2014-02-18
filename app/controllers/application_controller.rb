@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   def after_sign_in_path_for(user)
-	  (user.has_role? :admin)? '/admin/' : root_path 
+	  (user.has_role? :admin)? '/admin/' : userprofile_path(current_user) 
 	end
 	rescue_from CanCan::AccessDenied do |exception|
 	  respond_to do |format|

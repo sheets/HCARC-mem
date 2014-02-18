@@ -31,7 +31,10 @@ class Ability
     if user && user.has_role?(:admin)
       can :access, :rails_admin
       can :dashboard
-      can :manage, :all
+      can :manage, :all 
+    end
+    if user && user.has_role?(:voting_member)
+      can :access, :userprofiles
     end
   end
 end

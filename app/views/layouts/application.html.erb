@@ -38,11 +38,11 @@
   </head>
   <body>
     <%=render "/layouts/partial/header_top" %>
-
+    <%= bootstrap_flash %>
     <div class="container">
       
         <%#=render "layouts/devise_links" %>
-        <%#= bootstrap_flash %>
+        
         <%= yield %>
       <%=render "/layouts/partial/footer" %>
 
