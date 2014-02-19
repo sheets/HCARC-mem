@@ -19,4 +19,25 @@ class User < ActiveRecord::Base
   def add_user_role
   	self.add_role :user
   end
+  def is_admin
+    if self.has_role?(:admin)
+      "<input type='checkbox' id='#{self.id}' class='is_admin' checked=checked/>".html_safe
+    else
+      "<input type='checkbox' id='#{self.id}' class='is_admin'/>".html_safe
+    end
+  end
+  def is_member
+    if self.has_role?(:member)
+      "<input type='checkbox' id='#{self.id}' class='is_member' checked=checked/>".html_safe
+    else
+      "<input type='checkbox' id='#{self.id}' class='is_member'/>".html_safe
+    end
+  end
+  def is_voting_member
+    if self.has_role?(:voting_member)
+      "<input type='checkbox' id='#{self.id}' class='is_voting_member' checked=checked/>".html_safe
+    else
+      "<input type='checkbox' id='#{self.id}' class='is_voting_member'/>".html_safe
+    end
+  end
 end

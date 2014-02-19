@@ -12,6 +12,6 @@
  *= require bootstrap.min.css
  *= require_tree .
  */
-.alert.fade.in.alert-success{
+.alert.fade.in.alert-error,.alert.fade.in.alert-success{
 	margin-top: 65px;
 }

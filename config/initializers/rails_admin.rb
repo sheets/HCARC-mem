@@ -19,6 +19,9 @@ RailsAdmin.config do |config|
     list do
       field :email
       field :created_at
+      field :is_admin
+      field :is_member
+      field :is_voting_member
     end
   end
   # If you want to track changes on your models:
