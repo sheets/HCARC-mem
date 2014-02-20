@@ -20,6 +20,20 @@ class RegistrationsController < Devise::RegistrationsController
 	def profile
 		@profile=Userprofile.new
 	end
+	def add_remove_role
+		if params[:userid].present?
+			user=User.find(params[:userid])
+			user_type=(params[:member_type]=="voting")? "voting_member" : params[:member_type]
+			if params[:add_role]=="true"
+				user.add_role user_type
+			else
+				user.remove_role user_type
+			end
+		end
+		respond_to	do |format|
+			format.json{render json:{:success=>true}}
+		end
+	end
 	private
 	def call_sign_call
 		if params[:call_sign].present?

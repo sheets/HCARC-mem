@@ -8,6 +8,7 @@ Hcare::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
     get "registrations/profile"
+    get "registrations/add_remove_role"
   end
   root to: "home#index"
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
