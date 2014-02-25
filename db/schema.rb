@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140209163805) do
+ActiveRecord::Schema.define(:version => 20140225200235) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20140209163805) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "avatar"
   end
 
   add_index "userprofiles", ["user_id"], :name => "index_userprofiles_on_user_id"

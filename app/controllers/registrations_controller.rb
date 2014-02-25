@@ -47,7 +47,9 @@ class RegistrationsController < Devise::RegistrationsController
 				xml_path=xml.xpath("//xmlns:Callsign")
 			end
 			@alldata={}
+
 			xml_path.each do |node|
+					@alldata["image"]=node.xpath("//xmlns:image").first.children.text
 			    @alldata["call"]=node.xpath("//xmlns:call").first.children.text
 			    @alldata["fname"]=node.xpath("//xmlns:fname").first.children.text
 			    @alldata["name"]=node.xpath("//xmlns:name").first.children.text

@@ -2,14 +2,19 @@
 
 
 / <%= render "devise/shared/links" %>
-
 #form-step-1
 	.row
 		.col-lg-6
 			.well
 				.bs-example.form-horizontal
-					=form_for :userprofile,:url=>new_user_registration_path,:html=>{:validate=>true,:method=>"GET"} do |profile|
+					=form_for :userprofile,:url=>new_user_registration_path,:html=>{:validate=>true,:method=>"GET",:multipart => true} do |profile|
 						%legend Sign up
+						.form-group
+							.col-lg-2.control-label="Image or Image URL*"
+							.col-lg-10
+								= profile.file_field :avatar
+								= profile.text_field :remote_avatar_url,:value=>@alldata["image"],:class=>"form-control"
+								= profile.hidden_field :avatar_cache
 						.form-group
 							.col-lg-2.control-label="Callsign*"
 							.col-lg-10

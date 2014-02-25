@@ -3,7 +3,8 @@ Hcare::Application.routes.draw do
 
   get "home/index"
   get "home/callsign"
-  get "userprofile/:id"=>"userprofiles#show",:as=>:userprofile
+  # resource :userprofile ,:only=>[:show]
+  get "userprofile/:id"=>"userprofiles#getprofile",:as=>:userprofile
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do

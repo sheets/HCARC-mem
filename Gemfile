@@ -28,6 +28,8 @@ gem 'rolify'
 gem 'cancan'
 gem 'client_side_validations'
 gem "nokogiri"
+gem "rmagick"
+gem "carrierwave"
 
 
 

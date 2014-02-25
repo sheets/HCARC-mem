@@ -13,6 +13,8 @@
             .col-lg-2.control-label= f.label :password
             .col-lg-10
               = f.password_field :password,:class=>"form-control"
+              = hidden_field_tag "userprofile[avatar]",@userprofile["avatar"]
+              = hidden_field_tag "userprofile[remote_avatar_url]",@userprofile["remote_avatar_url"]
               = hidden_field_tag "userprofile[callsign]",@userprofile["callsign"]
               = hidden_field_tag "userprofile[fname]",@userprofile["fname"]
               = hidden_field_tag "userprofile[lname]",@userprofile["lname"]
