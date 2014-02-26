@@ -5,7 +5,7 @@ module ApplicationHelper
 			return "Technician"
 		when "G"
 			return "General"
-		when "e"
+		when "E"
 			return "Extra"
 		else
 			return ""
