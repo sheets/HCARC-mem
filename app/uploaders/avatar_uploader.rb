@@ -31,12 +31,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
   version :thumb do
-    process :resize_to_limit => [100, 100]
+    process :resize_to_limit => [50, 50]
   end
   version :medium do
-    process :resize_to_limit => [150, 150]
-  end
-  version :large do
     process :resize_to_limit => [250, 250]
   end
 

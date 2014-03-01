@@ -1,7 +1,8 @@
 class UserprofilesController < ApplicationController
 	load_resource
 	authorize_resource
-  def getprofile
-  	
+  def show
+  	@user=current_user
+  	@user_profile=@user.userprofile
   end
 end

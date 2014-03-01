@@ -1,16 +1,18 @@
 Hcare::Application.routes.draw do
-  get "userprofiles/show"
+  # get "userprofiles/show"
 
   get "home/index"
   get "home/callsign"
-  resource :userprofile ,:only=>[:show]
-  get "userprofile/:id"=>"userprofiles#getprofile",:as=>:userprofile
+  # resources :users ,:only=>[:show]
+  # get "users/:id"=>"userprofiles#getprofile",:as=>:user
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
     get "registrations/profile"
     get "registrations/add_remove_role"
+    get "users/:id"=>"userprofiles#show" ,:as=>:user
   end
+  # match ""
   root to: "home#index"
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   # The priority is based upon order of creation:

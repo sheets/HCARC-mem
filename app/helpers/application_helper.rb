@@ -12,4 +12,12 @@ module ApplicationHelper
 		end
 		
 	end
+	def user_profile_icon(user)
+		if user.userprofile.avatar.blank?
+			image_tag "/assets/default-user-icon-profile.png"
+		else
+			image_tag user.userprofile.avatar_url(:medium)
+			# image_tag  current_user.userprofile.assets.avatar(:tumb)
+		end
+	end
 end

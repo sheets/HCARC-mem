@@ -20,6 +20,18 @@ Hcare::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'mail.bham.al',
+    :port => 587,
+    :domain => 'bham.al',
+    :authentication => :login,
+    :user_name => 'hello@bham.al',
+    :password => 'scxcdr34',
+    :enable_starttls_auto => 'true',
+    :openssl_verify_mode => 'none'
+  }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 

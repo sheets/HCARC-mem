@@ -1,0 +1,45 @@
+%h1 Userprofiles
+%p
+	=user_profile_icon(@user)
+%p
+	%span Email:
+	%span
+		=@user.email
+%p
+	%span Callsign:
+	%span
+		=@user_profile.callsign
+%p
+	%span Name:
+	%span
+		=@user.full_name
+%p
+	%span Address:
+	%span
+		=@user_profile.add1
+
+%p
+	%span State:
+	%span
+		=@user_profile.state
+
+%p
+	%span Zip:
+	%span
+		=@user_profile.zip
+
+%p
+	%span Class:
+	%span
+		=@user_profile.class_user
+
+%p
+	%span efdate:
+	%span
+		=@user_profile.efdate
+
+%p
+	%span expdate:
+	%span
+		=@user_profile.expdate
+

@@ -35,10 +35,10 @@ class Ability
       can :access, :all
     elsif user && user.has_role?(:member)
       can :read, :all
-      # can :access,:all
+      can :access,:all
     elsif user && user.has_role?(:voting_member)
       can :access,:all
-      # can :read, :all
+      can :read, :all
     end
   end
 end

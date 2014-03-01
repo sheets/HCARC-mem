@@ -40,10 +40,12 @@
     <%=render "/layouts/partial/header_top" %>
     <%= bootstrap_flash %>
     <div class="container">
+      <div class="container-inner">
       
         <%#=render "layouts/devise_links" %>
         
         <%= yield %>
+      </div>
       <%=render "/layouts/partial/footer" %>
 
     </div> <!-- /container -->

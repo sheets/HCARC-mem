@@ -8,11 +8,36 @@ class RegistrationsController < Devise::RegistrationsController
 	end
 
 	def create
-		super
-		unless @user.blank?
+		# super
+		# debugger
+		@user=User.new(params[:user])
+		# build_resource
+		# resource.userprofile = params[:userprofile]   #******** here resource is user 
+		if @user.save
+			userprofile=@user.build_userprofile(params[:userprofile])
+			userprofile.save
+		  if resource.active_for_authentication?
+		    set_flash_message :notice, :signed_up if is_navigational_format?
+		    sign_in(resource_name, resource)
+		    debugger
+		    UserMailer.welcome_email(@user)
+		    respond_with resource, :location => user_path(userprofile.id)
+		  else
+		    set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+		    expire_session_data_after_sign_in!
+		    respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+		  end
+		else
+		  clean_up_passwords resource
+		  respond_with resource
+		end
+		
+	end
+	def after_inactive_sign_up_path_for(resource)
+    	unless @user.blank?
 			@user.build_userprofile(params[:userprofile]).save!
 		end
-	end
+  	end
 
 	def update
 		super

@@ -47,7 +47,7 @@
         
         -if user_signed_in?
           %li
-            =link_to "Signed in as #{current_user.email}. Not you?",userprofile_path(current_user.userprofile)
+            =link_to "Signed in as #{current_user.email}. Not you?",user_path(current_user.userprofile)
           %li
             = link_to "Sign out", destroy_user_session_path, :method => :delete
         -else

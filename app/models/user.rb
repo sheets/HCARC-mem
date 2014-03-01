@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:add1, :callsign, :class_user, :efdate, :expdate, :fname, :lname, :state, :zip, :addr2, :city, :avatar, :remote_avatar_url
   # attr_accessible :title, :body
-  has_many :has_many, dependent: :destroy
+  # has_many :has_many, dependent: :destroy
   # def before_add_method(role)
   #   self.add_role :admin
   # 
@@ -39,5 +39,9 @@ class User < ActiveRecord::Base
     else
       "<input type='checkbox' id='#{self.id}' class='is_voting_member'/>".html_safe
     end
+  end
+
+  def full_name
+    "#{self.userprofile.fname} #{self.userprofile.lname}"
   end
 end
