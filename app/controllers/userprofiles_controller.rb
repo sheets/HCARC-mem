@@ -1,4 +1,5 @@
 class UserprofilesController < ApplicationController
+  before_filter :authenticate_user!
 	load_resource
 	authorize_resource
   def show
