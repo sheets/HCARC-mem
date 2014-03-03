@@ -13,9 +13,18 @@
  *= require_tree .
  */
 .alert.fade.in.alert-error,.alert.fade.in.alert-success{
-	margin-top: 65px;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
 }
 .container-inner{
 	margin-top:70px;
 }
-
+.alert.fade.in.alert-error {
+    background-color: #D43037;
+    color:#fff;
+}
+.pagination-position{
+	width:100%;
+	text-align: right;
+}

@@ -223,6 +223,7 @@ DEPENDENCIES
   haml-rails
   html2haml
   jquery-rails
+  kaminari
   less-rails
   mysql2
   nokogiri

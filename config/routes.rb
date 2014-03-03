@@ -10,8 +10,10 @@ Hcare::Application.routes.draw do
   devise_scope :user do
     get "registrations/profile"
     get "registrations/add_remove_role"
-    get "users/:id"=>"userprofiles#show" ,:as=>:user
+    get "users"=>"userprofiles#index" ,:as=>:user
+    # get "users/:id"=>"userprofiles#show" ,:as=>:user
   end
+  resources :userprofiles ,:only=>[:show]
   # match ""
   root to: "home#index"
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

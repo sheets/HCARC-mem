@@ -1,0 +1,23 @@
+.page-header
+	%h1 Members
+/ .pagination
+/ 	= paginate @user_profiles
+%table.table.table-striped.table-hover
+	%thead
+		%tr
+			%th Name
+			%th Address
+			%th State
+			%th Zip
+			%th Class
+	%tbody
+	-@user_profiles.each do |profile|
+		%tr
+			%td
+				=link_to profile.full_name, userprofile_path(profile)
+			%td=profile.add1
+			%td=profile.state
+			%td=profile.zip
+			%td=profile.class_user
+.pagination-position
+	= paginate @user_profiles
