@@ -3,7 +3,7 @@ class UserprofilesController < ApplicationController
 	load_resource
 	authorize_resource
   def show
-  	@user=current_user
+  	@user=User.find(params[:user_id])
   	@user_profile=@user.userprofile
   end
   def index
