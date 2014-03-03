@@ -8,6 +8,6 @@ class UserprofilesController < ApplicationController
   end
   def index
   	@user=current_user
-  	@user_profiles=Userprofile.page(params[:page]).per(2)
+  	@user_profiles=Userprofile.page(params[:page]).per(10)
   end
 end
